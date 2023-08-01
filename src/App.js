@@ -14,7 +14,6 @@ export default class App extends Component {
                 <h1 id="tabelLabel" >SPIN THE WHEEL</h1>
                 <p>This component SPINS THE WHEEL!!</p>
                 <Wheel></Wheel>
-                <SpinWheel items={['a', 'b', 'c']} />
                 <ChoiceInput />
             </div>
         );
