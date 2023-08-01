@@ -1,0 +1,2 @@
+C:\Users\jpohlabel\source\repos\IGS-FedEx-Day\IGS-FedEx-Day\obj\Debug\igs-fedex-day.esproj.SuggestedBindingRedirects.cache
+C:\Users\jpohlabel\source\repos\IGS-FedEx-Day\IGS-FedEx-Day\obj\Debug\igs-fedex-day.esproj.CoreCompileInputs.cache
