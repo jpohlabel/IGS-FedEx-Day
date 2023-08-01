@@ -29,7 +29,6 @@ export const Wheel = () => {
         <WheelComponent
             segments={segments}
             segColors={segColors}
-            winningSegment='won 10'
             onFinished={(winner) => onFinished(winner)}
             primaryColor='black'
             contrastColor='white'
@@ -37,7 +36,7 @@ export const Wheel = () => {
             isOnlyOnce={false}
             size={290}
             upDuration={100}
-            downDuration={1000}
+            downDuration={200}
             fontFamily='Arial'
         />
     )
