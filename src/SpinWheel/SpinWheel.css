@@ -1,0 +1,71 @@
+/* SpinWheel.css */
+
+.spin-wheel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.spin-wheel {
+    width: 200px;
+    height: 200px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    position: relative;
+    transition: transform 5s ease-out;
+}
+
+.spinning {
+    /* Add spinning animation keyframes here */
+    animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(3600deg);
+    }
+}
+
+.wheel-item {
+    /* You can add more styles for the wheel items here */
+    width: 80px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4caf50;
+    color: #fff;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 20px;
+}
+
+    button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
