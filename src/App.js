@@ -9,10 +9,11 @@ export default class App extends Component {
     render() {
         return (
             <div>
+                <Header></Header>
                 <h1 id="tabelLabel" >SPIN THE WHEEL</h1>
                 <p>This component SPINS THE WHEEL!!</p>
                 <SpinWheel items={['a', 'b', 'c']} />
-                <Header></Header>
+                
                 
             </div>
         );
