@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SpinWheel from './SpinWheel/SpinWheel.js'
 import { Header } from './Components/Header.js'
+import Wheel from './wheel/wheel.js'
 import ChoiceInput from './TextInput/TextInput.js';
 
 
@@ -13,6 +13,7 @@ export default class App extends Component {
                 <Header></Header>
                 <h1 id="tabelLabel" >SPIN THE WHEEL</h1>
                 <p>This component SPINS THE WHEEL!!</p>
+                <Wheel></Wheel>
                 <SpinWheel items={['a', 'b', 'c']} />
                 <ChoiceInput />
             </div>
