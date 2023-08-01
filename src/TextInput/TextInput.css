@@ -1,0 +1,33 @@
+/* TextInput.css */
+
+.choices-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+input {
+    width: 200px;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.choices {
+    margin-top: 20px; /* Add margin at the top to move the input boxes higher */
+}
