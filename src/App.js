@@ -1,11 +1,29 @@
-import React, { Component } from 'react';
+/* eslint-disable no-undef */
+import React, { Component, useState } from 'react';
 import { Header } from './Components/Header.js'
 import Wheel from './wheel/wheel.js'
 import ChoiceInput from './TextInput/TextInput.js';
+import Confetti from './Confetti/Confetti.js';
 
+/*
+function PopConfetti() {
+    showConfetti = useState(false);
+    setShowConfetti = useState(false);
+
+    handleStartConfetti = () => {
+        setShowConfetti(true);
+
+        // Optionally, you can set a timer to stop the confetti after a certain duration
+        setTimeout(() => {
+            setShowConfetti(false);
+        }, 5000); // Stop the confetti after 5 seconds (adjust as needed)
+    };
+}
+*/
 
 export default class App extends Component {
-    static displayName = 'SPIN THE WHEEL!!!';
+    displayName = 'SPIN THE WHEEL!!!';
+    
 
     render() {
         return (
@@ -13,6 +31,7 @@ export default class App extends Component {
                 <Header></Header>
                 <h1 id="tabelLabel" >SPIN THE WHEEL</h1>
                 <p>This component SPINS THE WHEEL!!</p>
+                <Confetti />
                 <Wheel></Wheel>
                 <ChoiceInput />
             </div>
