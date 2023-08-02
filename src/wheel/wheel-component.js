@@ -1,8 +1,4 @@
-function _interopDefault(ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var React = require('react');
-var Sound = require('react-sound').default;
-var React__default = _interopDefault(React);
+import React from 'react';
 
 export const WheelComponent = function WheelComponent(_ref) {
   var segments = _ref.segments,
@@ -25,6 +21,7 @@ export const WheelComponent = function WheelComponent(_ref) {
     _ref$fontFamily = _ref.fontFamily,
     fontFamily = _ref$fontFamily === void 0 ? 'proxima-nova' : _ref$fontFamily;
   var currentSegment = '';
+  var lastSegment = '';
   // eslint-disable-next-line no-unused-vars
   var isStarted = false;
 
@@ -46,7 +43,8 @@ export const WheelComponent = function WheelComponent(_ref) {
   var centerY = size / 2;
   var logo = new Image();
   logo.src = require('../assets/igs.png')
-  var tickSound = new Sound({ url: '../assets/spin.mp3', volume: 10 })
+  new Audio('/spin.mp3')
+
   React.useEffect(function () {
     wheelInit();
     setTimeout(function () {
@@ -220,7 +218,12 @@ export const WheelComponent = function WheelComponent(_ref) {
     var change = angleCurrent + Math.PI / 2;
     var i = segments.length - Math.floor(change / (Math.PI * 2) * segments.length) - 1;
     if (i < 0) i = i + segments.length;
+    lastSegment = currentSegment;
     currentSegment = segments[i];
+    if (currentSegment !== lastSegment && isStarted) {
+      var tickSound = new Audio('/spin.mp3')
+      tickSound.play();
+    };
   };
 
   var clear = function clear() {
@@ -228,16 +231,18 @@ export const WheelComponent = function WheelComponent(_ref) {
     ctx.clearRect(0, 0, size, size);
   };
 
-  return /*#__PURE__*/React__default.createElement("div", {
-    id: "wheel"
-  }, /*#__PURE__*/React__default.createElement("canvas", {
-    id: "canvas",
-    width: size,
-    height: size,
-    style: {
-      pointerEvents: isFinished && isOnlyOnce ? 'none' : 'auto'
-    }
-  }));
+  return (
+    <div id='wheel'>
+      <canvas
+        id='canvas'
+        width={size}
+        height={size}
+        style={
+          { pointerEvents: isFinished && isOnlyOnce ? 'none' : 'auto' }
+        }
+      />
+    </div>
+  )
 };
 
 export default WheelComponent
