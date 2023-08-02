@@ -1,25 +1,14 @@
 import WheelComponent from './wheel-component.js'
 
 const segments = [
-    'better luck next time',
-    'won 70',
-    'won 10',
-    'better luck next time',
-    'won 2',
-    'won uber pass',
-    'better luck next time',
-    'won a voucher'
+    'lunch with scott',
+    '$20,000 bonus',
+    '10 weeks PTO',
+    'promoted to CEO',
+    'personal office',
+    'YOU ARE FIRED'
 ]
-const segColors = [
-    '#EE4040',
-    '#F0CF50',
-    '#815CD1',
-    '#3DA5E0',
-    '#34A24F',
-    '#F9AA1F',
-    '#EC3F3F',
-    '#FF9000'
-]
+
 const onFinished = (winner) => {
     console.log(winner)
 }
@@ -28,13 +17,11 @@ export const Wheel = () => {
     return (
         <WheelComponent
             segments={segments}
-            segColors={segColors}
             onFinished={(winner) => onFinished(winner)}
             primaryColor='black'
             contrastColor='white'
-            buttonText='Spin'
             isOnlyOnce={false}
-            size={290}
+            size={450}
             upDuration={100}
             downDuration={200}
             fontFamily='Arial'
