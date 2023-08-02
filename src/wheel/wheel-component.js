@@ -1,35 +1,36 @@
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+function _interopDefault(ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var React = require('react');
+var Sound = require('react-sound').default;
 var React__default = _interopDefault(React);
 
 export const WheelComponent = function WheelComponent(_ref) {
   var segments = _ref.segments,
-      winningSegment = _ref.winningSegment,
-      onFinished = _ref.onFinished,
-      _ref$primaryColor = _ref.primaryColor,
-      primaryColor = _ref$primaryColor === void 0 ? 'black' : _ref$primaryColor,
-      _ref$contrastColor = _ref.contrastColor,
-      contrastColor = _ref$contrastColor === void 0 ? 'white' : _ref$contrastColor,
-      _ref$buttonText = _ref.buttonText,
-      buttonText = _ref$buttonText === void 0 ? 'SPIN' : _ref$buttonText,
-      _ref$isOnlyOnce = _ref.isOnlyOnce,
-      isOnlyOnce = _ref$isOnlyOnce === void 0 ? true : _ref$isOnlyOnce,
-      _ref$size = _ref.size,
-      size = _ref$size === void 0 ? 290 : _ref$size,
-      _ref$upDuration = _ref.upDuration,
-      upDuration = _ref$upDuration === void 0 ? 100 : _ref$upDuration,
-      _ref$downDuration = _ref.downDuration,
-      downDuration = _ref$downDuration === void 0 ? 1000 : _ref$downDuration,
-      _ref$fontFamily = _ref.fontFamily,
-      fontFamily = _ref$fontFamily === void 0 ? 'proxima-nova' : _ref$fontFamily;
+    winningSegment = _ref.winningSegment,
+    onFinished = _ref.onFinished,
+    _ref$primaryColor = _ref.primaryColor,
+    primaryColor = _ref$primaryColor === void 0 ? 'black' : _ref$primaryColor,
+    _ref$contrastColor = _ref.contrastColor,
+    contrastColor = _ref$contrastColor === void 0 ? 'white' : _ref$contrastColor,
+    _ref$buttonText = _ref.buttonText,
+    buttonText = _ref$buttonText === void 0 ? 'SPIN' : _ref$buttonText,
+    _ref$isOnlyOnce = _ref.isOnlyOnce,
+    isOnlyOnce = _ref$isOnlyOnce === void 0 ? true : _ref$isOnlyOnce,
+    _ref$size = _ref.size,
+    size = _ref$size === void 0 ? 290 : _ref$size,
+    _ref$upDuration = _ref.upDuration,
+    upDuration = _ref$upDuration === void 0 ? 100 : _ref$upDuration,
+    _ref$downDuration = _ref.downDuration,
+    downDuration = _ref$downDuration === void 0 ? 1000 : _ref$downDuration,
+    _ref$fontFamily = _ref.fontFamily,
+    fontFamily = _ref$fontFamily === void 0 ? 'proxima-nova' : _ref$fontFamily;
   var currentSegment = '';
   // eslint-disable-next-line no-unused-vars
   var isStarted = false;
 
   var _useState = React.useState(false),
-      isFinished = _useState[0],
-      setFinished = _useState[1];
+    isFinished = _useState[0],
+    setFinished = _useState[1];
 
   var timerHandle = 0;
   var timerDelay = segments.length;
@@ -45,12 +46,13 @@ export const WheelComponent = function WheelComponent(_ref) {
   var centerY = size / 2;
   var logo = new Image();
   logo.src = require('../assets/igs.png')
+  var tickSound = new Sound({ url: '../assets/spin.mp3', volume: 10 })
   React.useEffect(function () {
     wheelInit();
     setTimeout(function () {
       window.scrollTo(0, 1);
     }, 0);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   var wheelInit = function wheelInit() {
@@ -215,6 +217,10 @@ export const WheelComponent = function WheelComponent(_ref) {
     ctx.lineTo(centerX, centerY - 70);
     ctx.closePath();
     ctx.fill();
+    var change = angleCurrent + Math.PI / 2;
+    var i = segments.length - Math.floor(change / (Math.PI * 2) * segments.length) - 1;
+    if (i < 0) i = i + segments.length;
+    currentSegment = segments[i];
   };
 
   var clear = function clear() {
