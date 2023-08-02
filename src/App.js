@@ -27,8 +27,8 @@ export default class App extends Component {
         return (
             <div align='center'>
                 <Header></Header>
-                <h1 id="tabelLabel" >SPIN THE WHEEL</h1>
-                <p>This component SPINS THE WHEEL!!</p>
+                <h1 id="tabelLabel" >IGS WHEEL OF ENERGY</h1>
+                <p>SPIN!! THAT!! WHEEL!!!!!</p>
                 <Confetti />
                 <Wheel></Wheel>
                 <ChoiceInput />
